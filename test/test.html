@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cheer your title (me)</title>
+</head>
+<body>
+  <script src="../dist/cheerleader.min.js"></script>
+  <script>
+    // cheerYourTitle('Im an animated title').slide(150, 12);
+    var cheerleader = cheerYourTitle('Im blinking').blink(1);
+
+    setTimeout(function () {
+      // blink for 5 secs then stop
+      cheerleader.stop();
+    }, 3000);
+  </script>
+</body>
+</html>

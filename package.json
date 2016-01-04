@@ -1,0 +1,28 @@
+{
+  "name": "cheer-your-title",
+  "version": "1.0.0",
+  "description": "Sometimes your <title> tag needs some joy",
+  "main": "lib/cheerleader.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leocavalcante/cheer-your-title.git"
+  },
+  "keywords": [
+    "dom",
+    "animation"
+  ],
+  "author": "leocavalcante <lc@leocavalcante.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leocavalcante/cheer-your-title/issues"
+  },
+  "homepage": "https://github.com/leocavalcante/cheer-your-title#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1"
+  }
+}

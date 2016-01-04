@@ -1,2 +1,3 @@
-# cheer-your-title
-Sometimes your &lt;title> tag needs some joy
+# Cheer your title
+Sometimes your &lt;title&gt; tag needs some joy
+
