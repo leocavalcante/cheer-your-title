@@ -1,10 +1,23 @@
-var gulp   = require('gulp'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename')
- 
-gulp.task('compress', function() {
-  return gulp.src('lib/*.js')
-    .pipe(uglify())
-    .pipe(rename('cheerleader.min.js'))
-    .pipe(gulp.dest('dist'));
+var gulp    = require('gulp');
+var gutil   = require('gulp-util');
+var webpack = require('webpack');
+
+gulp.task('webpack', function() {
+  webpack({
+    context: __dirname + '/lib',
+    entry: './cheerleader',
+    output: {
+      path: __dirname + '/dist',
+      filename: 'cheerleader.min.js',
+      library: 'cheerYourTitle'
+    },
+    module: {
+      loaders: [
+        {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+      ]
+    }
+  }, function (err, stats) {
+    if (err) throw new gutil.PluginError('webpack', err);
+    gutil.log('[webpack]', stats.toString());
+  });
 });
