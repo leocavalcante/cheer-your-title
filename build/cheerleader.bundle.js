@@ -99,7 +99,7 @@ var cheerYourTitle =
 
 	exports.default = function (title, sliceLength) {
 	  var titleSlice = calculateSlideWindow(this.frame, title, sliceLength);
-	  console.log(titleSlice);
+
 	  window.document.title = titleSlice;
 	  this.frame += 1;
 
