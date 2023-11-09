@@ -4,7 +4,7 @@
   "description": "Sometimes your <title> tag needs some joy",
   "main": "lib/cheerleader.js",
   "scripts": {
-    "build": "webpack build",
+    "build": "gulp",
     "test": "mocha --require babel-register ./test/**/*.test.js"
   },
   "repository": {
