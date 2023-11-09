@@ -43,7 +43,7 @@ var cheerYourTitle =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -87,9 +87,9 @@ var cheerYourTitle =
 	  };
 	}
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -98,7 +98,8 @@ var cheerYourTitle =
 	});
 
 	exports.default = function (title, sliceLength) {
-	  var titleSlice = title.slice(this.frame, this.frame + sliceLength);
+	  var titleSlice = calculateSlideWindow(this.frame, title, sliceLength);
+
 	  window.document.title = titleSlice;
 	  this.frame += 1;
 
@@ -107,9 +108,28 @@ var cheerYourTitle =
 	  }
 	};
 
-/***/ },
+	exports.calculateSlideWindow = calculateSlideWindow;
+	function calculateSlideWindow(frame, title, sliceLength) {
+	  var titleLength = title.length;
+
+	  if (sliceLength >= titleLength) {
+	    return title;
+	  }
+
+	  var startIndex = frame % titleLength;
+	  var titleSlice = title.slice(startIndex, startIndex + sliceLength);
+
+	  // Make it "rotate"
+	  if (startIndex + sliceLength > titleLength) {
+	    return titleSlice + title.slice(0, startIndex + sliceLength - titleLength);
+	  }
+
+	  return titleSlice;
+	}
+
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -118,9 +138,9 @@ var cheerYourTitle =
 	});
 
 	exports.default = function (title) {
-	  window.document.title = this.visible ? title : '‎';
+	  window.document.title = this.visible ? title : '\u200E';
 	  this.visible = !this.visible;
 	};
 
-/***/ }
+/***/ })
 /******/ ]);
