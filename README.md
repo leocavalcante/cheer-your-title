@@ -18,3 +18,6 @@ You must install the dependencies locally since I didn't have much time to run e
 
 ### Building the project
 You can run using `make build`. It will build the docker container and run the gulp command. The output will be on the `build` folder
+
+### Testing
+For some mysterious reasons, the test doesn't work from inside the docker. Just run `npm test` on your local machine and it will probably work. Let's hope for the best
